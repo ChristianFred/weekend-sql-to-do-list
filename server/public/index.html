@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL to-do List</title>
+    <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+</head>
+<body>
+    <header>
+        <h1>Christian's To-Do List</h1>
+    </header>
+    <section id="add_task">
+        <h2>Add A Task</h2>
+        <input type="text" id="taskIn" value="" placeholder="Task">
+        <input type="text" id="completedIn" value="" placeholder="Completion">
+        <button type="button" id="addButton">Add Task</button>
+    </section>
+    <section>
+        <h2>All Required Tasks</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tasks</th>
+                    <th>Completed Status</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="taskList">
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
