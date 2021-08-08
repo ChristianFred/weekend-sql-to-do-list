@@ -1,0 +1,8 @@
+body {
+    background-color: lemonchiffon;
+    font-family: "arial", "sans-serif";
+}
+
+.completedTask {
+    background-color: green;
+}

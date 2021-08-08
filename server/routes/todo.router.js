@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
     console.log('Adding a new task to the database', newTask);
 
     let queryText = `INSERT INTO "todo" ("task","completed")
-                        VALUES ($1, $2,);`;
+                        VALUES ($1, $2);`;
     pool.query(queryText, [newTask.task, newTask.completed])
         .then(result => {
             res.sendStatus(201);

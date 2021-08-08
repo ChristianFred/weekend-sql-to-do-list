@@ -53,14 +53,14 @@ function getTask() {
         for (task of response) {
             $('#taskList').append(`
         <tr data-id="${task.id}" data-completed="${task.completed}">
-          <th>${task.task}</th>
-          <th>${task.completed}</th>
-          <th>
+          <td ${task.completed ? 'class= "completedTask"':''}>${task.task}</td>
+          <td>${task.completed}</td>
+          <td>
             ${buttonOrNoButton(task.completed)}
-          </th>
-          <th>
+          </td>
+          <td>
             <button class="deleteBtn">Delete Task</button>
-          </th>
+          </td>
         </tr>
       `);
         }
@@ -77,7 +77,14 @@ function buttonOrNoButton(completed){
 }
 
 function deleteTask() {
-    console.log('something');
+    console.log($(this).closest('tr').data('id'))
+    const taskId = $(this).closest('tr').data('id')
+    $.ajax({
+        type: 'DELETE',
+        url: `/todo/${taskId}`,
+    }).then(function (res) {
+        getTask();
+    })
 };
 
 function completeTask() {
@@ -96,6 +103,7 @@ function completeTask() {
     }).then(function (response) {
         getTask();
         console.log('response from PUT /todo is', response);
+
     }).catch((err) => {
         console.log('PUT /todo error', err);
         alert('PUT /todo failed!');
